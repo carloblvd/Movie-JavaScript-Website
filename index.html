@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Website</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav id="nav">
+      <i class="fas fa-film nav__logo"> </i>
+      <ul class="nav__links">
+        <li class="nav__link">
+          <a class="green link__hover-effect" href="#search">Search</a>
+        </li>
+        <li class="nav__link">
+          <a class="green link__hover-effect" href="#trending">Trending</a>
+        </li>
+        <li class="nav__link">
+          <a class="green link__hover-effect" href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section id="landing">
+      <figure class="landing__img--wrapper">
+        <img
+          class="landing__img"
+          src="./assets/movie background img.jpeg"
+          alt="" />
+        <h2 class="landing__header">Any Movie. Any Time.</h2>
+      </figure>
+    </section>
+
+    <section id="search">
+      <div class="container search__container">
+        <div class="row">
+          <form class="search__wrapper" id="searchForm">
+            <input
+              class="search__box"
+              type="text"
+              id="searchInput"
+              placeholder="Search Movies..."
+              onsubmit="movieSearch()"
+              required />
+            <button
+              type="button"
+              onclick="movieSearch()"
+              class="search__button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="trending">
+      <div class="container">
+        <div class="row">
+          <h3 class="section__title">Trending</h3>
+          <div class="movies"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__content">
+        <div class="footer__logo--wrapper">
+          <a href="#nav">
+            <i class="fas fa-film footer__logo"></i>
+          </a>
+          <div class="footer__logo--popper">
+            <span>Top </span><i class="fas fa-arrow-up"></i>
+          </div>
+        </div>
+        <ul class="footer__links">
+          <li class="footer__link">
+            <a class="green link__hover-effect" href="#nav">Home</a>
+          </li>
+          <li class="footer__link">
+            <a class="green link__hover-effect" href="#search">Search</a>
+          </li>
+          <li class="footer__link">
+            <a class="green link__hover-effect" href="#trending">Trending</a>
+          </li>
+          <li class="footer__link">
+            <a class="green link__hover-effect" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="copyright">Copyright © 2023 Carlo Munoz</div>
+      </div>
+    </footer>
+  </body>
+</html>
