@@ -16,16 +16,24 @@
       <i class="fas fa-film nav__logo"> </i>
       <ul class="nav__links">
         <li class="nav__link">
-          <a class="green link__hover-effect" href="./index.html#landing"
-            >Home</a
+          <a class="light-green link__hover-effect" href="./index.html">Home</a>
+        </li>
+        <li class="nav__link">
+          <a
+            class="light-green link__hover-effect"
+            onclick="movieSearch()"
+            href="#search"
+            >Search</a
           >
         </li>
         <li class="nav__link">
-          <a class="green link__hover-effect" href="#search">Search</a>
-        </li>
-        <li class="nav__link">
-          <a class="green link__hover-effect" href="./index.html#trending"
+          <a class="light-green link__hover-effect trending__btn" href="./index.html#trending"
             >Trending</a
+          >
+        </li>
+        <li class="nav__link contact__button">
+          <a class="light-green nav__contact" onclick="toggleContactPage()"
+            >Contact</a
           >
         </li>
       </ul>
@@ -51,13 +59,92 @@
           </form>
         </div>
       </div>
+      <div class="modal">
+        <div class="modal__content">
+          <h3 class="modal__message">
+            <span class="my-name">
+              Hi my name is <span class="og-green">Carlo</span>!
+            </span>
+            <br />
+            <span class="modal__header">
+              I created this website. If you like it and would like to
+              <span class="og-green">contact me</span>, you can use this form!
+            </span>
+          </h3>
+          <ul class="modal__social--links">
+            <a
+              class="modal__social--link"
+              target="_blank"
+              href="https://www.linkedin.com/in/carlo-munoz-04069a164">
+              <i class="modal__social--icon fab fa-linkedin-in"></i>
+            </a>
+            <a
+              class="modal__social--link"
+              target="_blank"
+              href="https://github.com/carloblvd">
+              <i class="modal__social--icon fab fa-github"></i>
+            </a>
+            <a class="modal__social--link" target="_blank" href="">
+              <i class="modal__social--icon fas fa-file-alt"></i>
+            </a>
+          </ul>
+          <form class="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="label form__item--label">Name</label>
+              <input
+                onclick="moveLabel(0)"
+                type="text"
+                class="input"
+                name="user_name"
+                required />
+            </div>
+            <div class="form__item">
+              <label class="label form__item--label">Email</label>
+              <input
+                onclick="moveLabel(1)"
+                type="email"
+                class="input"
+                name="user_email"
+                required />
+            </div>
+            <div class="form__item">
+              <label class="label form__item--message">Message</label>
+              <textarea
+                onclick="moveLabel(2)"
+                type="text"
+                class="message"
+                name="message"
+                required></textarea>
+            </div>
+            <div class="modal__contact--button">
+              <button id="contact__submit" class="form__submit">Send!</button>
+              <h4 class="success__message">Thank you for the message!</h4>
+            </div>
+          </form>
+        </div>
+        <button class="modal__close" onclick="toggleContactPage()">
+          <i class="fas fa-times"></i>
+        </button>
     </section>
 
     <section id="search__results">
       <div class="container">
         <div class="row">
-          <h3 class="search__results">Search results for ""</h3>
-          <div class="movies"></div>
+          <div class="search__content">
+            <h3 class="search__results">Search results for ""</h3>
+            <select
+              class="search__options"
+              name=""
+              id="filter"
+              onchange="filterMovies(event)">
+              <option value="" disabled selected>Sort</option>
+              <option value="NEW_TO_OLD">New to Old</option>
+              <option value="OLD_TO_NEW">Old to New</option>
+            </select>
+          </div>
+          <div class="movies">
+            <i class="fas fa-spinner movies__loading--spinner"></i>
+          </div>
         </div>
       </div>
     </section>
@@ -68,21 +155,25 @@
 
         <ul class="footer__links">
           <li class="footer__link">
-            <a class="green link__hover-effect" href="./index.html">Home</a>
+            <a class="light-green link__hover-effect" href="./index.html"
+              >Home</a
+            >
           </li>
           <li class="footer__link">
-            <a class="green link__hover-effect" href="./index.html#search"
+            <a class="light-green link__hover-effect" href="./index.html#search"
               >Search</a
             >
           </li>
           <li class="footer__link">
-            <a class="green link__hover-effect" href="./index.html#trending"
+            <a
+              class="light-green link__hover-effect trending__btn"
+              href="./index.html#trending"
               >Trending</a
             >
           </li>
-          <li class="footer__link">
-            <a class="green link__hover-effect" href="./index.html#popular"
-              >Popular</a
+          <li class="footer__link contact__button">
+            <a class="light-green footer__contact" onclick="toggleContactPage()"
+              >Contact</a
             >
           </li>
         </ul>

@@ -10,19 +10,31 @@
     <script
       src="https://kit.fontawesome.com/c8e4d183c2.js"
       crossorigin="anonymous"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("fUrOyNKYMUln64o4F");
+      })();
+    </script>
   </head>
   <body>
     <nav id="nav">
       <i class="fas fa-film nav__logo"> </i>
       <ul class="nav__links">
         <li class="nav__link">
-          <a class="green link__hover-effect" href="#search">Search</a>
+          <a class="light-green link__hover-effect" href="#search">Search</a>
         </li>
         <li class="nav__link">
-          <a class="green link__hover-effect" href="#trending">Trending</a>
+          <a class="light-green link__hover-effect" href="#trending"
+            >Trending</a
+          >
         </li>
-        <li class="nav__link">
-          <a class="green link__hover-effect" href="#">Contact</a>
+        <li class="nav__link contact__button">
+          <a class="light-green nav__contact" onclick="toggleContactPage()"
+            >Contact</a
+          >
         </li>
       </ul>
     </nav>
@@ -40,28 +52,92 @@
     <section id="search">
       <div class="container search__container">
         <div class="row">
-          <form class="search__wrapper" id="searchForm">
+          <form class="search__wrapper" id="searchForm" action="./movies.html">
             <input
               class="search__box"
+              name="searchInput"
               type="text"
               id="searchInput"
               placeholder="Search Movies..."
-              onsubmit="movieSearch()"
               required />
-            <button
-              type="button"
-              onclick="movieSearch()"
-              class="search__button">
+            <button type="submit" class="search__button">
               <i class="fas fa-search"></i>
             </button>
           </form>
         </div>
       </div>
+      <div class="modal">
+        <div class="modal__content">
+          <h3 class="modal__message">
+            <p class="my-name">
+              Hi my name is <span class="og-green">Carlo</span>!
+            </p>
+
+            <p class="modal__header">
+              I created this website. If you like it and would like to
+              <span class="og-green">contact me</span>, you can use this form!
+            </p>
+          </h3>
+          <ul class="modal__social--links">
+            <a
+              class="modal__social--link"
+              target="_blank"
+              href="https://www.linkedin.com/in/carlo-munoz-04069a164">
+              <i class="modal__social--icon fab fa-linkedin-in"></i>
+            </a>
+            <a
+              class="modal__social--link"
+              target="_blank"
+              href="https://github.com/carloblvd">
+              <i class="modal__social--icon fab fa-github"></i>
+            </a>
+            <a class="modal__social--link" target="_blank" href="">
+              <i class="modal__social--icon fas fa-file-alt"></i>
+            </a>
+          </ul>
+          <form class="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="label form__item--label">Name</label>
+              <input
+                onclick="moveLabel(0)"
+                type="text"
+                class="input"
+                name="user_name"
+                required />
+            </div>
+            <div class="form__item">
+              <label class="label form__item--label">Email</label>
+              <input
+                onclick="moveLabel(1)"
+                type="email"
+                class="input"
+                name="user_email"
+                required />
+            </div>
+            <div class="form__item">
+              <label class="label form__item--message">Message</label>
+              <textarea
+                onclick="moveLabel(2)"
+                type="text"
+                class="message"
+                name="message"
+                required></textarea>
+            </div>
+            <div class="modal__contact--button">
+              <button id="contact__submit" class="form__submit">Send!</button>
+              <h4 class="success__message">Thank you for the message!</h4>
+            </div>
+          </form>
+        </div>
+        <button class="modal__close" onclick="toggleContactPage()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </section>
 
     <section id="trending">
       <div class="container">
-        <div class="row">
+        <div class="row trending__row">
           <h3 class="section__title">Trending</h3>
           <div class="movies"></div>
         </div>
@@ -80,16 +156,20 @@
         </div>
         <ul class="footer__links">
           <li class="footer__link">
-            <a class="green link__hover-effect" href="#nav">Home</a>
+            <a class="light-green link__hover-effect" href="#nav">Home</a>
           </li>
           <li class="footer__link">
-            <a class="green link__hover-effect" href="#search">Search</a>
+            <a class="light-green link__hover-effect" href="#search">Search</a>
           </li>
           <li class="footer__link">
-            <a class="green link__hover-effect" href="#trending">Trending</a>
+            <a class="light-green link__hover-effect" href="#trending"
+              >Trending</a
+            >
           </li>
-          <li class="footer__link">
-            <a class="green link__hover-effect" href="#">Contact</a>
+          <li class="footer__link contact__button">
+            <a class="light-green footer__contact" onclick="toggleContactPage()"
+              >Contact</a
+            >
           </li>
         </ul>
         <div class="copyright">Copyright © 2023 Carlo Munoz</div>
